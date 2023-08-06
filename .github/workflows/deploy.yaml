@@ -23,7 +23,7 @@ jobs:
       - run: docker push leandrosantos/multi-server
       - run: docker push leandrosantos/multi-worker
 
-       - name: Generate deployment package
+      - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
