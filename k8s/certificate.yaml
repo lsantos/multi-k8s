@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+ 
+kind: Certificate
+metadata:
+  name: k8smaster-dev-tls
+spec:
+  secretName: k8smaster-dev
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8smaster.dev
+  dnsNames:
+    - k8smaster.dev
+    - www.k8smaster.dev
