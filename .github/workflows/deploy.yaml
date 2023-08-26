@@ -27,7 +27,7 @@ jobs:
       - name: Set Project
         uses: google-github-actions/setup-gcloud@v0
         with:
-          project_id: multi-338920
+          project_id:  multi-k8s-397118
 
       - name: Auth
         run: |-
