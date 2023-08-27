@@ -19,19 +19,20 @@ jobs:
           docker build -t leandrosantos/react-test -f ./client/Dockerfile.dev ./client
           docker run -e CI=true leandrosantos/react-test npm test
 
-      - name: Set Service Key
-        uses: 'google-github-actions/auth@v0'
-        with:
-          credentials_json: '${{ secrets.GKE_SA_KEY }}'
-
       - name: Set Project
         uses: google-github-actions/setup-gcloud@v0
         with:
           project_id:  multi-k8s-397118
 
-      - name: Auth
+      - name: Auth Configure Docker
         run: |-
-          gcloud --quiet auth configure-docker
+          gcloud --quiet auth configure-docker    
+
+      - name: Auth Workload Identity
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          workload_identity_provider: 'projects/430867035936/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+          service_account: 'ghactions-deployer@multi-k8s-397118.iam.gserviceaccount.com'
 
       - name: Get Credentials
         uses: google-github-actions/get-gke-credentials@v0
