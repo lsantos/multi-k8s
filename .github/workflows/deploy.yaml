@@ -10,6 +10,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: actions/checkout@v3
 
@@ -29,7 +32,7 @@ jobs:
           gcloud --quiet auth configure-docker    
 
       - name: Auth Workload Identity
-        uses: google-github-actions/auth@v0.4.0
+        uses: google-github-actions/auth@v1
         with:
           workload_identity_provider: 'projects/430867035936/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
           service_account: 'ghactions-deployer@multi-k8s-397118.iam.gserviceaccount.com'
