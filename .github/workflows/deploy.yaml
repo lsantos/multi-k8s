@@ -30,8 +30,8 @@ jobs:
       - name: Auth Workload Identity
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: 'projects/430867035936/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-          service_account: 'ghactions-deployer@multi-k8s-397118.iam.gserviceaccount.com'
+          workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
+          service_account: '${{ secrets.SA_EMAIL }}'
           token_format: 'access_token'
 
       - name: Get Credentials
