@@ -27,10 +27,6 @@ jobs:
         with:
           project_id:  multi-k8s-397118
 
-      - name: Auth Configure Docker
-        run: |-
-          gcloud --quiet auth configure-docker    
-
       - name: Auth Workload Identity
         uses: google-github-actions/auth@v1
         with:
