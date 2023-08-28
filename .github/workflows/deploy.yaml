@@ -36,9 +36,10 @@ jobs:
         with:
           workload_identity_provider: 'projects/430867035936/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
           service_account: 'ghactions-deployer@multi-k8s-397118.iam.gserviceaccount.com'
+          token_format: 'access_token'
 
       - name: Get Credentials
-        uses: google-github-actions/get-gke-credentials@v0
+        uses: google-github-actions/get-gke-credentials@v1
         with:
           cluster_name: multi-cluster
           location: us-central1-c
