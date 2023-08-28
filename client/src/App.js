@@ -18,7 +18,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Calculate Fibonacci React App v1
+            Calculate Fibonacci React App v2
           </a>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
