@@ -1,0 +1,1 @@
+This respository hosts code to show how I believe microservices should be implemented in terms of code quality and robustness. All communication between microservices favor an asynchronous approach with events being passed and received.
